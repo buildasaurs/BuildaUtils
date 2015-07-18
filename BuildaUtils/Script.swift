@@ -11,6 +11,9 @@ import Foundation
 /**
 *   A utility class for running terminal Scripts from your Mac app.
 */
+
+#if os(OSX)
+
 public class Script {
     
     public typealias ScriptResponse = (terminationStatus: Int, standardOutput: String, standardError: String)
@@ -111,3 +114,4 @@ public class Script {
     }
 }
 
+#endif
