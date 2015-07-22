@@ -25,7 +25,7 @@ public class HTTP {
 
     public func sendRequest(request: NSURLRequest, completion: Completion) {
         
-        guard let task = self.session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        let task = self.session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             //try to cast into HTTP response
             if let httpResponse = response as? NSHTTPURLResponse {
                 
@@ -87,10 +87,7 @@ public class HTTP {
                 let e = error ?? Error.withInfo("Response is nil")
                 completion(response: nil, body: nil, error: e)
             }
-        }) else {
-            completion(response: nil, body:nil, error:Error.withInfo("Could't create request"))
-            return
-        }
+        })
         
         task.resume()
     }
