@@ -29,6 +29,8 @@
 		3ACBADD31B5A904C00204457 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB6A1B5A7D9B004732CD /* Script.swift */; };
 		3ACBADD41B5A904C00204457 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C298A1B5A8AA80037C486 /* Server.swift */; };
 		3ACBADD51B5A904C00204457 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB6B1B5A7D9B004732CD /* TimeUtils.swift */; };
+		70E46B611B60D8A400B5D3AD /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E46B601B60D8A400B5D3AD /* ExtensionsTests.swift */; };
+		70E46B631B60DE0B00B5D3AD /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E46B621B60DE0B00B5D3AD /* TestUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		3ACBADC51B5A904700204457 /* BuildaUtilsiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BuildaUtilsiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACBADC71B5A904700204457 /* BuildaUtilsiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildaUtilsiOS.h; sourceTree = "<group>"; };
 		3ACBADC91B5A904700204457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70E46B601B60D8A400B5D3AD /* ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
+		70E46B621B60DE0B00B5D3AD /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			children = (
 				3A5C29911B5A8ABD0037C486 /* ScriptTests.swift */,
 				3A5C297E1B5A88E70037C486 /* Info.plist */,
+				70E46B601B60D8A400B5D3AD /* ExtensionsTests.swift */,
+				70E46B621B60DE0B00B5D3AD /* TestUtils.swift */,
 			);
 			path = BuildaUtilsTests;
 			sourceTree = "<group>";
@@ -290,6 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5C29921B5A8ABD0037C486 /* ScriptTests.swift in Sources */,
+				70E46B631B60DE0B00B5D3AD /* TestUtils.swift in Sources */,
+				70E46B611B60D8A400B5D3AD /* ExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +567,7 @@
 				3ACBADCB1B5A904700204457 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
