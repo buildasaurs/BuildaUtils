@@ -1,30 +1,38 @@
 # Change Log
 
-## [v0.0.6](https://github.com/buildasaurs/BuildaUtils/tree/v0.0.6) (2015-07-24)
+## [v0.0.7](https://github.com/czechboy0/BuildaUtils/tree/v0.0.7) (2015-07-27)
 
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.0.5...v0.0.6)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.6...v0.0.7)
 
 **Merged pull requests:**
 
-- Parsing date from array \(extension\) [\#1](https://github.com/buildasaurs/BuildaUtils/pull/1) ([cojoj](https://github.com/cojoj))
+- Encapsulate date formatter [\#3](https://github.com/czechboy0/BuildaUtils/pull/3) ([cojoj](https://github.com/cojoj))
 
-## [v0.0.5](https://github.com/buildasaurs/BuildaUtils/tree/v0.0.5) (2015-07-22)
+## [v0.0.6](https://github.com/czechboy0/BuildaUtils/tree/v0.0.6) (2015-07-24)
 
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.0.4...v0.0.5)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.5...v0.0.6)
 
-## [v0.0.4](https://github.com/buildasaurs/BuildaUtils/tree/v0.0.4) (2015-07-18)
+**Merged pull requests:**
 
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.0.3...v0.0.4)
+- Parsing date from array \(extension\) [\#1](https://github.com/czechboy0/BuildaUtils/pull/1) ([cojoj](https://github.com/cojoj))
 
-## [v0.0.3](https://github.com/buildasaurs/BuildaUtils/tree/v0.0.3) (2015-07-18)
+## [v0.0.5](https://github.com/czechboy0/BuildaUtils/tree/v0.0.5) (2015-07-22)
 
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.0.2...v0.0.3)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.4...v0.0.5)
 
-## [v0.0.2](https://github.com/buildasaurs/BuildaUtils/tree/v0.0.2) (2015-07-18)
+## [v0.0.4](https://github.com/czechboy0/BuildaUtils/tree/v0.0.4) (2015-07-18)
 
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.0.1...v0.0.2)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.3...v0.0.4)
 
-## [v0.0.1](https://github.com/buildasaurs/BuildaUtils/tree/v0.0.1) (2015-07-18)
+## [v0.0.3](https://github.com/czechboy0/BuildaUtils/tree/v0.0.3) (2015-07-18)
+
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.2...v0.0.3)
+
+## [v0.0.2](https://github.com/czechboy0/BuildaUtils/tree/v0.0.2) (2015-07-18)
+
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.1...v0.0.2)
+
+## [v0.0.1](https://github.com/czechboy0/BuildaUtils/tree/v0.0.1) (2015-07-18)
 
 
 
