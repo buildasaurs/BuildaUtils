@@ -45,8 +45,6 @@ public class JSON {
     }
 }
 
-private var formatter: NSDateFormatter!
-
 public extension NSDictionary {
     
     public func arrayForKey<T>(key: String) -> [T]! {
