@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.0.8](https://github.com/czechboy0/BuildaUtils/tree/v0.0.8) (2015-07-27)
+
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.7...v0.0.8)
+
+**Closed issues:**
+
+- Separate date formatter from JSON [\#2](https://github.com/czechboy0/BuildaUtils/issues/2)
+
+**Merged pull requests:**
+
+- Namig bug [\#4](https://github.com/czechboy0/BuildaUtils/pull/4) ([cojoj](https://github.com/cojoj))
+
 ## [v0.0.7](https://github.com/czechboy0/BuildaUtils/tree/v0.0.7) (2015-07-27)
 
 [Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.6...v0.0.7)
