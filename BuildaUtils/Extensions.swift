@@ -36,7 +36,7 @@ public extension String {
     }
 }
 
-public enum DateParsing: ErrorType {
+public enum DateParsingError: ErrorType {
     case WrongNumberOfElements(Int)
 }
 
@@ -54,7 +54,7 @@ public extension Array where Element: IntegerType {
         case 7:
             return "\(formattedSelf[0])-\(formattedSelf[1])-\(formattedSelf[2])T\(formattedSelf[3]):\(formattedSelf[4]):\(formattedSelf[5]).\(formattedSelf[6])Z"
         default:
-            throw DateParsing.WrongNumberOfElements(elementsCount)
+            throw DateParsingError.WrongNumberOfElements(elementsCount)
         }
     }
     
