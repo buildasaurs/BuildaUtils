@@ -17,6 +17,14 @@ public extension NSDate {
         let formatted = TimeUtils.secondsToNaturalTime(seconds)
         return "\(formatted) ago"
     }
+    
+    class public func dateFromXCSString(date: String) -> NSDate? {
+        // XCS date formatter
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ"
+        
+        return formatter.dateFromString(date)
+    }
 }
 
 public class TimeUtils {
