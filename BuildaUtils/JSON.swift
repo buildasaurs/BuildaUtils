@@ -118,19 +118,10 @@ public extension NSDictionary {
         return self.nonOptionalForKey(key)
     }
 
-    private func getFormatter() -> NSDateFormatter {
-        
-        if formatter == nil {
-            formatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ"
-        }
-        return formatter
-    }
-
     public func optionalDateForKey(key: String) -> NSDate? {
         
         if let dateString = self.optionalStringForKey(key) {
-            let date = self.getFormatter().dateFromString(dateString)
+            let date = NSDate.dateFromXCSString(dateString)
             return date
         }
         return nil
