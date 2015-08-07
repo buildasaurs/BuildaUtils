@@ -60,7 +60,9 @@ public class Script {
     private class func runInTemporaryScript(script: String, block: (scriptPath: String, error: NSError?) -> ()) {
         
         let uuid = NSUUID().UUIDString
-        let tempPath = NSTemporaryDirectory().stringByAppendingPathComponent(uuid)
+        // Bug? https://forums.developer.apple.com/thread/13580
+        let tempDirectory = NSTemporaryDirectory() as NSString
+        let tempPath = tempDirectory.stringByAppendingPathComponent(uuid)
         
         do {
             //write the script to file
