@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.0.9](https://github.com/czechboy0/BuildaUtils/tree/v0.0.9) (2015-08-08)
+
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.8...v0.0.9)
+
+**Merged pull requests:**
+
+- Path error workaround [\#5](https://github.com/czechboy0/BuildaUtils/pull/5) ([cojoj](https://github.com/cojoj))
+
 ## [v0.0.8](https://github.com/czechboy0/BuildaUtils/tree/v0.0.8) (2015-07-27)
 
 [Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.0.7...v0.0.8)
