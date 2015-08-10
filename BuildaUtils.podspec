@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BuildaUtils"
-  s.version      = "0.0.9"
+  s.version      = "0.0.10"
   s.summary      = "Shared utilities for the Buildasaur and XcodeServerSDK projects."
 
   s.description  = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
   s.watchos.deployment_target = "2.0"
 
-  s.source       = { :git => "https://github.com/czechboy0/BuildaUtils.git", :tag => "v0.0.9" }
+  s.source       = { :git => "https://github.com/czechboy0/BuildaUtils.git", :tag => "v0.0.10" }
   s.source_files  = "BuildaUtils/*.{swift}"
 
 end
