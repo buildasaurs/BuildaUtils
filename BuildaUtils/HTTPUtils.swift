@@ -117,7 +117,7 @@ extension HTTP {
         }
         
         let pairs = query.keys.sort().map { "\($0)=\(query[$0]!)" }
-        let full = "?" + "&".join(pairs)
+        let full = "?" + pairs.joinWithSeparator("&")
         
         return full
     }
