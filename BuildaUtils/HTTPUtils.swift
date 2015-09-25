@@ -23,7 +23,7 @@ public class HTTP {
     
     public typealias Completion = (response: NSHTTPURLResponse?, body: AnyObject?, error: NSError?) -> ()
 
-    public func sendRequest(request: NSURLRequest, completion: Completion) {
+    public func sendRequest(request: NSURLRequest, completion: Completion) -> NSURLSessionTask {
         
         let task = self.session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             //try to cast into HTTP response
@@ -90,8 +90,8 @@ public class HTTP {
         })
         
         task.resume()
+        return task
     }
-
 }
 
 extension HTTP {
