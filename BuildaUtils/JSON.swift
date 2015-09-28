@@ -8,10 +8,15 @@
 
 import Foundation
 
-public protocol JSONSerializable {
+public protocol JSONReadable {
     init?(json: NSDictionary) throws
+}
+
+public protocol JSONWritable {
     func jsonify() -> NSDictionary
 }
+
+public protocol JSONSerializable: JSONReadable, JSONWritable { }
 
 public class JSON {
 
