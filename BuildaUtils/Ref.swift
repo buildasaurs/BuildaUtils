@@ -12,7 +12,7 @@ import Foundation
 public typealias RefType = String
 
 public struct Ref {
-    static func new() -> RefType {
+    public static func new() -> RefType {
         return NSUUID().UUIDString
     }
 }
