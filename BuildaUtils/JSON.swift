@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol JSONReadable {
-    init?(json: NSDictionary) throws
+    init(json: NSDictionary) throws
 }
 
 public protocol JSONWritable {
