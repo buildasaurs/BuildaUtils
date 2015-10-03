@@ -15,5 +15,4 @@ public class HTTPServer : NSObject {
     public init(http: HTTP? = nil) {
         self.http = http ?? HTTP()
     }
-    
 }

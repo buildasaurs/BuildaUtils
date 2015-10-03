@@ -10,6 +10,7 @@
 		3A0FF5A61BBFFC1500FB8051 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FF5A51BBFFC1500FB8051 /* Ref.swift */; settings = {ASSET_TAGS = (); }; };
 		3A0FF5A71BBFFC4700FB8051 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FF5A51BBFFC1500FB8051 /* Ref.swift */; settings = {ASSET_TAGS = (); }; };
 		3A0FF5A81BBFFC4800FB8051 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FF5A51BBFFC1500FB8051 /* Ref.swift */; settings = {ASSET_TAGS = (); }; };
+		3A0FF5AA1BBFFD4900FB8051 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FF5A91BBFFD4900FB8051 /* Availability.swift */; settings = {ASSET_TAGS = (); }; };
 		3A5C297F1B5A88E70037C486 /* BuildaUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81BB4F1B5A7D01004732CD /* BuildaUtils.framework */; };
 		3A5C298B1B5A8AA80037C486 /* ContainerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29851B5A8AA80037C486 /* ContainerExtensions.swift */; };
 		3A5C298C1B5A8AA80037C486 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29861B5A8AA80037C486 /* Errors.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		3A0FF5A51BBFFC1500FB8051 /* Ref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
+		3A0FF5A91BBFFD4900FB8051 /* Availability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
 		3A5C297A1B5A88E70037C486 /* BuildaUtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildaUtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5C297E1B5A88E70037C486 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5C29851B5A8AA80037C486 /* ContainerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerExtensions.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				3A81BB521B5A7D01004732CD /* BuildaUtils.h */,
 				3A81BB541B5A7D01004732CD /* Info.plist */,
+				3A0FF5A91BBFFD4900FB8051 /* Availability.swift */,
 				3A5C29851B5A8AA80037C486 /* ContainerExtensions.swift */,
 				3A5C29861B5A8AA80037C486 /* Errors.swift */,
 				3A81BB691B5A7D9B004732CD /* Extensions.swift */,
@@ -407,6 +410,7 @@
 				3A5C298B1B5A8AA80037C486 /* ContainerExtensions.swift in Sources */,
 				3A5C298D1B5A8AA80037C486 /* HTTPUtils.swift in Sources */,
 				3A5C29901B5A8AA80037C486 /* Server.swift in Sources */,
+				3A0FF5AA1BBFFD4900FB8051 /* Availability.swift in Sources */,
 				3A5C298F1B5A8AA80037C486 /* Logging.swift in Sources */,
 				3A0FF5A61BBFFC1500FB8051 /* Ref.swift in Sources */,
 			);
