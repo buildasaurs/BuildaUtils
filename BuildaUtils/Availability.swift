@@ -20,7 +20,7 @@ public func == (a:AvailabilityCheckState, b:AvailabilityCheckState) -> Bool {
     switch(a,b) {
     case (.Unchecked, .Unchecked) : return true
     case (.Checking, .Checking) : return true
-    case (.Failed(let fa), .Failed(let fb)) : return fa == fb
+    case (.Failed(let fa), .Failed(let fb)) : return (fa as? NSError) == (fb as? NSError)
     case (.Succeeded, .Succeeded) : return true
     default: return false
     }
