@@ -1,5 +1,11 @@
 # Change Log
 
+## [v0.1.7](https://github.com/czechboy0/BuildaUtils/tree/v0.1.7) (2015-10-04)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.1.6...v0.1.7)
+
+## [v0.1.6](https://github.com/czechboy0/BuildaUtils/tree/v0.1.6) (2015-10-04)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.1.5...v0.1.6)
+
 ## [v0.1.5](https://github.com/czechboy0/BuildaUtils/tree/v0.1.5) (2015-10-03)
 [Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.1.4...v0.1.5)
 
