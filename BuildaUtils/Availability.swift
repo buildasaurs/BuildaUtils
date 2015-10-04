@@ -11,7 +11,7 @@ import Foundation
 public enum AvailabilityCheckState: Equatable {
     case Unchecked
     case Checking
-    case Failed(NSError?)
+    case Failed(ErrorType?)
     case Succeeded
 }
 
