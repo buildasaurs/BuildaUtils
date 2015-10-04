@@ -34,6 +34,7 @@
 		3A81BB6C1B5A7D9B004732CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB691B5A7D9B004732CD /* Extensions.swift */; };
 		3A81BB6D1B5A7D9B004732CD /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB6A1B5A7D9B004732CD /* Script.swift */; };
 		3A81BB6E1B5A7D9B004732CD /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB6B1B5A7D9B004732CD /* TimeUtils.swift */; };
+		3A9109B61BC1A80500C2AECA /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FF5A91BBFFD4900FB8051 /* Availability.swift */; };
 		3AC722031BB5F8090005FF4B /* HTTPUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC722021BB5F8090005FF4B /* HTTPUtilsTests.swift */; settings = {ASSET_TAGS = (); }; };
 		3ACBADC81B5A904700204457 /* BuildaUtilsiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACBADC71B5A904700204457 /* BuildaUtilsiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ACBADCD1B5A904C00204457 /* ContainerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29851B5A8AA80037C486 /* ContainerExtensions.swift */; };
@@ -389,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A9109B61BC1A80500C2AECA /* Availability.swift in Sources */,
 				3A6D4B801B7897130032C53F /* ContainerExtensions.swift in Sources */,
 				3A6D4B811B7897130032C53F /* Errors.swift in Sources */,
 				3A6D4B821B7897130032C53F /* Extensions.swift in Sources */,
