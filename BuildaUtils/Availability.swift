@@ -13,6 +13,10 @@ public enum AvailabilityCheckState: Equatable {
     case Checking
     case Failed(ErrorType?)
     case Succeeded
+    
+    public func isDone() -> Bool {
+        return self != .Checking
+    }
 }
 
 /// Added `Equatable` to the enum to better test properties of this enum.
