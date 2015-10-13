@@ -15,7 +15,7 @@ public class HTTP {
     public init(session: NSURLSession = NSURLSession.sharedSession()) {
         
         //disable all caching
-        session.configuration.requestCachePolicy = .ReloadIgnoringLocalCacheData
+        session.configuration.requestCachePolicy = .ReloadIgnoringCacheData
         session.configuration.URLCache = nil
         
         self.session = session
