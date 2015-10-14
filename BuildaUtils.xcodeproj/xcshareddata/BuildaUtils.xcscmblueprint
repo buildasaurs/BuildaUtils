@@ -1,0 +1,21 @@
+{
+    "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey": "5D16CA34BF4B5BCF8F7A27DB3EF14B91E0986432",
+    "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey": {},
+    "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey": {
+        "5D16CA34BF4B5BCF8F7A27DB3EF14B91E0986432": 0
+    },
+    "DVTSourceControlWorkspaceBlueprintIdentifierKey": "369FE2F7-A030-4AB9-9010-1D0C809F0BD1",
+    "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey": {
+        "5D16CA34BF4B5BCF8F7A27DB3EF14B91E0986432": "BuildaUtils/"
+    },
+    "DVTSourceControlWorkspaceBlueprintNameKey": "BuildaUtils",
+    "DVTSourceControlWorkspaceBlueprintVersion": 204,
+    "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey": "BuildaUtils.xcodeproj",
+    "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey": [
+        {
+            "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey": "5D16CA34BF4B5BCF8F7A27DB3EF14B91E0986432",
+            "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey": "com.apple.dt.Xcode.sourcecontrol.Git",
+            "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey": "git@github.com:czechboy0/BuildaUtils.git"
+        }
+    ]
+}
