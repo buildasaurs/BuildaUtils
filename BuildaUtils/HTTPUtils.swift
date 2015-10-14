@@ -12,13 +12,21 @@ public class HTTP {
     
     public var session: NSURLSession
     
-    public init(session: NSURLSession = NSURLSession.sharedSession()) {
+    public init(session: NSURLSession?) {
         
-        //disable all caching
-        session.configuration.requestCachePolicy = .ReloadIgnoringCacheData
-        session.configuration.URLCache = nil
-        
-        self.session = session
+        if let session = session {
+            self.session = session
+        } else {
+            
+            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+            
+            //disable all caching
+            configuration.requestCachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+            configuration.URLCache = nil
+            
+            let session = NSURLSession(configuration: configuration)
+            self.session = session
+        }
     }
     
     public typealias Completion = (response: NSHTTPURLResponse?, body: AnyObject?, error: NSError?) -> ()
