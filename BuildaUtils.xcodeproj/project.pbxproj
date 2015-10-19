@@ -20,7 +20,6 @@
 		3A5C298F1B5A8AA80037C486 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29891B5A8AA80037C486 /* Logging.swift */; };
 		3A5C29901B5A8AA80037C486 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C298A1B5A8AA80037C486 /* Server.swift */; };
 		3A5C29921B5A8ABD0037C486 /* ScriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29911B5A8ABD0037C486 /* ScriptTests.swift */; };
-		3A6D4B7B1B7896F70032C53F /* BuildaUtilswatchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6D4B7A1B7896F70032C53F /* BuildaUtilswatchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A6D4B801B7897130032C53F /* ContainerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29851B5A8AA80037C486 /* ContainerExtensions.swift */; };
 		3A6D4B811B7897130032C53F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29861B5A8AA80037C486 /* Errors.swift */; };
 		3A6D4B821B7897130032C53F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB691B5A7D9B004732CD /* Extensions.swift */; };
@@ -36,7 +35,6 @@
 		3A81BB6E1B5A7D9B004732CD /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB6B1B5A7D9B004732CD /* TimeUtils.swift */; };
 		3A9109B61BC1A80500C2AECA /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FF5A91BBFFD4900FB8051 /* Availability.swift */; };
 		3AC722031BB5F8090005FF4B /* HTTPUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC722021BB5F8090005FF4B /* HTTPUtilsTests.swift */; settings = {ASSET_TAGS = (); }; };
-		3ACBADC81B5A904700204457 /* BuildaUtilsiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACBADC71B5A904700204457 /* BuildaUtilsiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ACBADCD1B5A904C00204457 /* ContainerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29851B5A8AA80037C486 /* ContainerExtensions.swift */; };
 		3ACBADCE1B5A904C00204457 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C29861B5A8AA80037C486 /* Errors.swift */; };
 		3ACBADCF1B5A904C00204457 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81BB691B5A7D9B004732CD /* Extensions.swift */; };
@@ -74,8 +72,6 @@
 		3A5C298A1B5A8AA80037C486 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		3A5C29911B5A8ABD0037C486 /* ScriptTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptTests.swift; sourceTree = "<group>"; };
 		3A6D4B781B7896F70032C53F /* BuildaUtilswatchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BuildaUtilswatchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A6D4B7A1B7896F70032C53F /* BuildaUtilswatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildaUtilswatchOS.h; sourceTree = "<group>"; };
-		3A6D4B7C1B7896F70032C53F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A81BB4F1B5A7D01004732CD /* BuildaUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BuildaUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A81BB521B5A7D01004732CD /* BuildaUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildaUtils.h; sourceTree = "<group>"; };
 		3A81BB541B5A7D01004732CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,8 +80,6 @@
 		3A81BB6B1B5A7D9B004732CD /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		3AC722021BB5F8090005FF4B /* HTTPUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPUtilsTests.swift; sourceTree = "<group>"; };
 		3ACBADC51B5A904700204457 /* BuildaUtilsiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BuildaUtilsiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ACBADC71B5A904700204457 /* BuildaUtilsiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildaUtilsiOS.h; sourceTree = "<group>"; };
-		3ACBADC91B5A904700204457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70E46B601B60D8A400B5D3AD /* ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		70E46B621B60DE0B00B5D3AD /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,22 +130,11 @@
 			path = BuildaUtilsTests;
 			sourceTree = "<group>";
 		};
-		3A6D4B791B7896F70032C53F /* BuildaUtilswatchOS */ = {
-			isa = PBXGroup;
-			children = (
-				3A6D4B7A1B7896F70032C53F /* BuildaUtilswatchOS.h */,
-				3A6D4B7C1B7896F70032C53F /* Info.plist */,
-			);
-			path = BuildaUtilswatchOS;
-			sourceTree = "<group>";
-		};
 		3A81BB451B5A7D01004732CD = {
 			isa = PBXGroup;
 			children = (
 				3A81BB511B5A7D01004732CD /* BuildaUtils */,
 				3A5C297B1B5A88E70037C486 /* BuildaUtilsTests */,
-				3ACBADC61B5A904700204457 /* BuildaUtilsiOS */,
-				3A6D4B791B7896F70032C53F /* BuildaUtilswatchOS */,
 				3A81BB501B5A7D01004732CD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,15 +170,6 @@
 			path = BuildaUtils;
 			sourceTree = "<group>";
 		};
-		3ACBADC61B5A904700204457 /* BuildaUtilsiOS */ = {
-			isa = PBXGroup;
-			children = (
-				3ACBADC71B5A904700204457 /* BuildaUtilsiOS.h */,
-				3ACBADC91B5A904700204457 /* Info.plist */,
-			);
-			path = BuildaUtilsiOS;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -203,7 +177,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6D4B7B1B7896F70032C53F /* BuildaUtilswatchOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +192,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ACBADC81B5A904700204457 /* BuildaUtilsiOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
