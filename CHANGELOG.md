@@ -1,5 +1,21 @@
 # Change Log
 
+## [Unreleased](https://github.com/czechboy0/BuildaUtils/tree/HEAD)
+
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.3...HEAD)
+
+**Closed issues:**
+
+- Drop Carthage [\#8](https://github.com/czechboy0/BuildaUtils/issues/8)
+- Release a spec with tvOS support [\#7](https://github.com/czechboy0/BuildaUtils/issues/7)
+
+## [v0.2.3](https://github.com/czechboy0/BuildaUtils/tree/v0.2.3) (2015-10-19)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.2...v0.2.3)
+
+**Merged pull requests:**
+
+- removed extra targets \(iOS, watch\), added tvOS support to the spec [\#9](https://github.com/czechboy0/BuildaUtils/pull/9) ([czechboy0](https://github.com/czechboy0))
+
 ## [v0.2.2](https://github.com/czechboy0/BuildaUtils/tree/v0.2.2) (2015-10-14)
 [Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.1...v0.2.2)
 
