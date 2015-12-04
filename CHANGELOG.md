@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/czechboy0/BuildaUtils/tree/HEAD)
-
-[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.3...HEAD)
+## [v0.2.4](https://github.com/czechboy0/BuildaUtils/tree/v0.2.4) (2015-12-04)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.3...v0.2.4)
 
 **Closed issues:**
 
