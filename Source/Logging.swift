@@ -50,7 +50,7 @@ public class FileLogger: Logger {
             NSFileManager.defaultManager().createFileAtPath(fileURL.absoluteString, contents: nil, attributes: nil)
         }
 
-        self.stream = NSOutputStream(URL: fileURL, append: true)!;
+        self.stream = NSOutputStream(URL: fileURL, append: true)!
         self.stream.open()
     }
 
@@ -101,7 +101,7 @@ public class FileLogger: Logger {
             }
 
             NSFileManager.defaultManager().createFileAtPath(fileURL.absoluteString, contents: nil, attributes: nil)
-            self.stream = NSOutputStream(URL: fileURL, append: true)!;
+            self.stream = NSOutputStream(URL: fileURL, append: true)!
             self.stream.open()
         } catch let error {
             print(error)

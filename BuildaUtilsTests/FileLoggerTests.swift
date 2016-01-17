@@ -54,7 +54,7 @@ class FileLoggerTests: XCTestCase {
                 self.logger.log(message)
                 sizeCounter = sizeCounter + messageSize
             } else {
-                break;
+                break
             }
         }
 
