@@ -2,7 +2,14 @@
 
 ## [Unreleased](https://github.com/czechboy0/BuildaUtils/tree/HEAD)
 
-[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.4...HEAD)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.5...HEAD)
+
+**Merged pull requests:**
+
+- Make file cap/log persistance options public [\#12](https://github.com/czechboy0/BuildaUtils/pull/12) ([accatyyc](https://github.com/accatyyc))
+
+## [v0.2.5](https://github.com/czechboy0/BuildaUtils/tree/v0.2.5) (2016-01-17)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.4...v0.2.5)
 
 **Merged pull requests:**
 
