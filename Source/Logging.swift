@@ -19,10 +19,10 @@ public class FileLogger: Logger {
     let fileURL: NSURL
 
     // Split log files at this byte size. If nil, never split files (default: 1MB)
-    var fileSizeCap: UInt64? = 1024 * 1024
+    public var fileSizeCap: UInt64? = 1024 * 1024
 
     // If false, delete old log files when splitting on fileSizeCap
-    var shouldKeepArchivedLogs = true
+    public var shouldKeepArchivedLogs = true
 
     internal var stream: NSOutputStream
     internal var fileSize: UInt64? {
