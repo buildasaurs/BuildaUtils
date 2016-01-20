@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BuildaUtils"
-  s.version      = "0.2.7"
+  s.version      = "0.2.8"
   s.summary      = "Shared utilities for the Buildasaur and XcodeServerSDK projects."
 
   s.description  = <<-DESC
