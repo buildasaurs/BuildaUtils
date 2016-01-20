@@ -1,8 +1,14 @@
 # Change Log
 
-## [Unreleased](https://github.com/czechboy0/BuildaUtils/tree/HEAD)
+## [v0.2.7](https://github.com/czechboy0/BuildaUtils/tree/v0.2.7) (2016-01-20)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.6...v0.2.7)
 
-[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.5...HEAD)
+**Closed issues:**
+
+- Cap file log to a fixed size [\#10](https://github.com/czechboy0/BuildaUtils/issues/10)
+
+## [v0.2.6](https://github.com/czechboy0/BuildaUtils/tree/v0.2.6) (2016-01-18)
+[Full Changelog](https://github.com/czechboy0/BuildaUtils/compare/v0.2.5...v0.2.6)
 
 **Merged pull requests:**
 
