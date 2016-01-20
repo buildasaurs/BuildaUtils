@@ -25,6 +25,14 @@ public extension NSDate {
         
         return formatter.dateFromString(date)
     }
+    
+    class public func XCSStringFromDate(date: NSDate) -> String? {
+        // XCS date formatter
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ"
+        
+        return formatter.stringFromDate(date)
+    }
 }
 
 public class TimeUtils {
