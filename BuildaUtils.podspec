@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BuildaUtils"
-  s.version      = "0.2.6"
+  s.version      = "0.2.7"
   s.summary      = "Shared utilities for the Buildasaur and XcodeServerSDK projects."
 
   s.description  = <<-DESC
@@ -20,5 +20,11 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/czechboy0/BuildaUtils.git", :tag => "v#{s.version}" }
   s.source_files  = "Source/*.{swift}"
+
+  # load the dependencies from the podfile for target ekgclient
+  podfile_deps = Podfile.from_file(Dir["Podfile"].first).target_definitions["BuildaUtils"].dependencies
+  podfile_deps.each do |dep|
+    s.dependency dep.name, dep.requirement.to_s
+  end
 
 end

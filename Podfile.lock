@@ -1,0 +1,10 @@
+PODS:
+  - SwiftSafe (0.1)
+
+DEPENDENCIES:
+  - SwiftSafe (~> 0.1)
+
+SPEC CHECKSUMS:
+  SwiftSafe: 77ffd12b02678790bec1ef56a2d14ec5036f1fd6
+
+COCOAPODS: 0.39.0
