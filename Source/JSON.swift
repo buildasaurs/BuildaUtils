@@ -16,6 +16,11 @@ public protocol JSONWritable {
     func jsonify() -> NSDictionary
 }
 
+public enum JSONError: ErrorType {
+    case valueNotFound(key: String)
+    case unexpectedItemType(String)
+}
+
 public protocol JSONSerializable: JSONReadable, JSONWritable { }
 
 public class JSON {
@@ -52,12 +57,15 @@ public class JSON {
 
 public extension NSDictionary {
     
-    public func arrayForKey<T>(key: String) -> [T]! {
+    public func arrayForKey<T>(key: String) throws -> [T] {
         
-        let array = self.arrayForKey(key)
-        var newArray = [T]()
+        let array = try self.arrayForKey(key)
+        var newArray: [T] = []
         for i in array {
-            newArray.append(i as! T)
+            guard let t = i as? T else {
+                throw JSONError.unexpectedItemType(String(i.dynamicType))
+            }
+            newArray.append(t)
         }
         return newArray
     }
@@ -70,16 +78,19 @@ public extension NSDictionary {
         return nil
     }
 
-    public func nonOptionalForKey<Z>(key: String) -> Z {
-        return self.optionalForKey(key)!
+    public func nonOptionalForKey<Z>(key: String) throws -> Z {
+        guard let item: Z = self.optionalForKey(key) else {
+            throw JSONError.valueNotFound(key: key)
+        }
+        return item
     }
     
     public func optionalArrayForKey(key: String) -> NSArray? {
         return self.optionalForKey(key)
     }
     
-    public func arrayForKey(key: String) -> NSArray {
-        return self.nonOptionalForKey(key)
+    public func arrayForKey(key: String) throws -> NSArray {
+        return try self.nonOptionalForKey(key)
     }
     
     public func optionalStringForKey(key: String) -> String? {
@@ -93,32 +104,32 @@ public extension NSDictionary {
         return nil
     }
 
-    public func stringForKey(key: String) -> String {
-        return self.nonOptionalForKey(key)
+    public func stringForKey(key: String) throws -> String {
+        return try self.nonOptionalForKey(key)
     }
 
     public func optionalIntForKey(key: String) -> Int? {
         return self.optionalForKey(key)
     }
 
-    public func intForKey(key: String) -> Int {
-        return self.nonOptionalForKey(key)
+    public func intForKey(key: String) throws -> Int {
+        return try self.nonOptionalForKey(key)
     }
     
     public func optionalBoolForKey(key: String) -> Bool? {
         return self.optionalForKey(key)
     }
 
-    public func boolForKey(key: String) -> Bool {
-        return self.nonOptionalForKey(key)
+    public func boolForKey(key: String) throws -> Bool {
+        return try self.nonOptionalForKey(key)
     }
     
     public func optionalDictionaryForKey(key: String) -> NSDictionary? {
         return self.optionalForKey(key)
     }
 
-    public func dictionaryForKey(key: String) -> NSDictionary {
-        return self.nonOptionalForKey(key)
+    public func dictionaryForKey(key: String) throws -> NSDictionary {
+        return try self.nonOptionalForKey(key)
     }
 
     public func optionalDateForKey(key: String) -> NSDate? {
@@ -130,16 +141,19 @@ public extension NSDictionary {
         return nil
     }
 
-    public func dateForKey(key: String) -> NSDate {
-        return self.optionalDateForKey(key)!
+    public func dateForKey(key: String) throws -> NSDate {
+        guard let item = self.optionalDateForKey(key) else {
+            throw JSONError.valueNotFound(key: key)
+        }
+        return item
     }
     
     public func optionalDoubleForKey(key: String) -> Double? {
         return self.optionalForKey(key)
     }
 
-    public func doubleForKey(key: String) -> Double {
-        return self.nonOptionalForKey(key)
+    public func doubleForKey(key: String) throws -> Double {
+        return try self.nonOptionalForKey(key)
     }
     
 }
