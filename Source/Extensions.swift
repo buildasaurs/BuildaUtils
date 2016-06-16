@@ -8,6 +8,14 @@
 
 import Foundation
 
+public func unthrow<R>(@noescape block: () throws -> R) -> (R?, ErrorType?) {
+    do {
+        return (try block(), nil)
+    } catch {
+        return (nil, error)
+    }
+}
+
 public extension Double {
     
     public func clipTo(numberOfDigits: Int) -> Double {
