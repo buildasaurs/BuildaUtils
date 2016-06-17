@@ -16,6 +16,14 @@ public func unthrow<R>(@noescape block: () throws -> R) -> (R?, ErrorType?) {
     }
 }
 
+public func unthrow<R>(@noescape block: () throws -> R) -> (R?, NSError?) {
+    do {
+        return (try block(), nil)
+    } catch {
+        return (nil, error as NSError)
+    }
+}
+
 public extension Double {
     
     public func clipTo(numberOfDigits: Int) -> Double {
