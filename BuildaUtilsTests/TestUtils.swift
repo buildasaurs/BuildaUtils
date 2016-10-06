@@ -20,7 +20,7 @@ extension XCTestCase {
     - parameter line:    Line in which assertion happened
     - parameter block:   Block of code against which assertion should be matched
     */
-    func XCTempAssertThrowsError(message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
+    func XCTempAssertThrowsError(_ message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
         do {
             try block()
             
@@ -38,7 +38,7 @@ extension XCTestCase {
     - parameter line:    Line in which assertion happened
     - parameter block:   Block of code against which assertion should be matched
     */
-    func XCTempAssertThrowsSpecificError(kind: ErrorType, _ message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
+    func XCTempAssertThrowsSpecificError(_ kind: Error, _ message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
         do {
             try block()
             
@@ -61,7 +61,7 @@ extension XCTestCase {
     - parameter line:    Line in which assertion happened
     - parameter block:   Block of code against which assertion should be matched
     */
-    func XCTempAssertNoThrowError(message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
+    func XCTempAssertNoThrowError(_ message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
         do {
             try block()
         } catch {
@@ -79,7 +79,7 @@ extension XCTestCase {
     - parameter line:    Line in which assertion happened
     - parameter block:   Block of code against which assertion should be matched
     */
-    func XCTempAssertNoThrowSpecificError(kind: ErrorType, _ message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
+    func XCTempAssertNoThrowSpecificError(_ kind: Error, _ message: String = "", file: StaticString = #file, line: UInt = #line, _ block: () throws -> ()) {
         do {
             try block()
         } catch let error as NSError {

@@ -13,13 +13,13 @@ class FileLoggerTests: XCTestCase {
 
     let fileSizeCap = 1000 as UInt64
     var logger: FileLogger!
-    var logFileURL = NSURL()
+    var logFileURL: URL!
     
     override func setUp() {
         super.setUp()
 
         let directoryPath = createUniqueTemporaryDirectory()!
-        self.logFileURL = directoryPath.URLByAppendingPathComponent("test.log")
+        self.logFileURL = directoryPath.appendingPathComponent("test.log")
         self.logger = FileLogger(fileURL: self.logFileURL)
         self.logger.fileSizeCap = fileSizeCap
     }
@@ -28,8 +28,8 @@ class FileLoggerTests: XCTestCase {
         let message = "Testing to write something to the log!"
         let message2 = "Writing something more"
 
-        let messageSize = "\(message)\n".dataUsingEncoding(NSUTF8StringEncoding)!.length
-        let message2Size = "\(message2)\n".dataUsingEncoding(NSUTF8StringEncoding)!.length
+        let messageSize = "\(message)\n".data(using: String.Encoding.utf8)!.count
+        let message2Size = "\(message2)\n".data(using: String.Encoding.utf8)!.count
         let totalSize = messageSize + message2Size
 
         self.logger.log(message)
@@ -46,7 +46,7 @@ class FileLoggerTests: XCTestCase {
 
     func testFileArchiving() {
         let message = "Testing to write something to the log!"
-        let messageSize = UInt64("\(message)\n".dataUsingEncoding(NSUTF8StringEncoding)!.length)
+        let messageSize = UInt64("\(message)\n".data(using: String.Encoding.utf8)!.count)
 
         var sizeCounter = 0 as UInt64
         while true {
@@ -63,19 +63,19 @@ class FileLoggerTests: XCTestCase {
         XCTAssertEqual(self.logger.fileSize, messageSize)
     }
 
-    func createUniqueTemporaryDirectory() -> NSURL? {
-        let template = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("buildautils-test-XXXXXX")
-
+    func createUniqueTemporaryDirectory() -> URL? {
+        let template = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("buildautils-test-XXXXXX") as NSURL
+        
         // Fill buffer with a C string representing the local file system path.
-        var buffer = [Int8](count: Int(PATH_MAX), repeatedValue: 0)
+        var buffer = [Int8](repeating: 0, count: Int(PATH_MAX))
         template.getFileSystemRepresentation(&buffer, maxLength: buffer.count)
 
         // Create unique file name (and open file):
         let fd = mkdtemp(&buffer)
         if fd != nil {
-            return NSURL(fileURLWithFileSystemRepresentation: buffer, isDirectory: false, relativeToURL: nil)
+            return URL(fileURLWithFileSystemRepresentation: buffer, isDirectory: false, relativeTo: nil)
         } else {
-            print("Error: " + String(strerror(errno)))
+            print("Error: " + String(describing: strerror(errno)))
             return nil
         }
     }

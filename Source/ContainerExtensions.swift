@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension SequenceType {
+extension Sequence {
     
-    public func mapThrows<T>(@noescape transform: (Self.Generator.Element) throws -> T) rethrows -> [T] {
+    public func mapThrows<T>(transform: (Self.Iterator.Element) throws -> T) rethrows -> [T] {
         
         var out: [T] = []
         for i in self {
@@ -19,9 +19,9 @@ extension SequenceType {
         return out
     }
     
-    public func filterThrows(@noescape includeElement: (Self.Generator.Element) throws -> Bool) rethrows -> [Self.Generator.Element] {
+    public func filterThrows(includeElement: (Self.Iterator.Element) throws -> Bool) rethrows -> [Self.Iterator.Element] {
         
-        var out: [Self.Generator.Element] = []
+        var out: [Self.Iterator.Element] = []
         for i in self {
             if try includeElement(i) {
                 out.append(i)
@@ -33,7 +33,7 @@ extension SequenceType {
     /**
     Basically `filter` that stops when it finds the first one.
     */
-    public func findFirst(@noescape test: (Self.Generator.Element) -> Bool) -> Self.Generator.Element? {
+    public func findFirst(_ test: (Self.Iterator.Element) -> Bool) -> Self.Iterator.Element? {
         
         for i in self {
             if test(i) {

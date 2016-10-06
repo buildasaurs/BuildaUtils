@@ -2,9 +2,20 @@ PODS:
   - SwiftSafe (0.1)
 
 DEPENDENCIES:
-  - SwiftSafe (~> 0.1)
+  - SwiftSafe (from `https://github.com/Sajjon/SwiftSafe.git`)
+
+EXTERNAL SOURCES:
+  SwiftSafe:
+    :git: https://github.com/Sajjon/SwiftSafe.git
+
+CHECKOUT OPTIONS:
+  SwiftSafe:
+    :commit: 243f20e76e7863729cb922454d2981139dba8505
+    :git: https://github.com/Sajjon/SwiftSafe.git
 
 SPEC CHECKSUMS:
   SwiftSafe: 77ffd12b02678790bec1ef56a2d14ec5036f1fd6
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 97d92f6e46ad6f2bc913891878f88566154ba6ff
+
+COCOAPODS: 1.0.1

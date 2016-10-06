@@ -13,6 +13,6 @@ public typealias RefType = String
 
 public struct Ref {
     public static func new() -> RefType {
-        return NSUUID().UUIDString
+        return UUID().uuidString
     }
 }

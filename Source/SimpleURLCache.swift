@@ -9,11 +9,11 @@
 import Foundation
 import SwiftSafe
 
-public class ResponseInfo: AnyObject {
-    public let response: NSHTTPURLResponse
-    public let body: AnyObject?
+open class ResponseInfo: AnyObject {
+    open let response: HTTPURLResponse
+    open let body: AnyObject?
     
-    public init(response: NSHTTPURLResponse, body: AnyObject?) {
+    public init(response: HTTPURLResponse, body: AnyObject?) {
         self.response = response
         self.body = body
     }
@@ -30,7 +30,7 @@ public struct CachedInfo {
 }
 
 public protocol URLCache {
-    func getCachedInfoForRequest(request: NSURLRequest) -> CachedInfo
+    func getCachedInfoForRequest(_ request: URLRequest) -> CachedInfo
 }
 
 /**
@@ -40,21 +40,21 @@ public protocol URLCache {
  *  downloading data again. In the case of GitHub, such request doesn't count
  *  towards the rate limit.
  */
-public class InMemoryURLCache: URLCache {
+open class InMemoryURLCache: URLCache {
     
-    private let storage = NSCache()
-    private let safe: Safe = CREW()
+    fileprivate let storage = NSCache<NSString, AnyObject>()
+    fileprivate let safe: Safe = CREW()
     
     public init(countLimit: Int = 1000) {
         self.storage.countLimit = countLimit //just to not grow indefinitely
     }
     
-    public func getCachedInfoForRequest(request: NSURLRequest) -> CachedInfo {
+    open func getCachedInfoForRequest(_ request: URLRequest) -> CachedInfo {
         
         var responseInfo: ResponseInfo?
-        let key = request.cacheableKey()
+        let key = request.cacheableKey() as NSString
         self.safe.read {
-            responseInfo = self.storage.objectForKey(key) as? ResponseInfo
+            responseInfo = self.storage.object(forKey: key) as? ResponseInfo
         }
         
         let info = CachedInfo(responseInfo: responseInfo) { (responseInfo) -> () in
@@ -66,9 +66,9 @@ public class InMemoryURLCache: URLCache {
     }
 }
 
-extension NSURLRequest {
+extension URLRequest {
     public func cacheableKey() -> String {
-        return "\(self.HTTPMethod!)-\(self.URL!.absoluteString)"
+        return "\(self.httpMethod!)-\(self.url!.absoluteString)"
     }
 }
 

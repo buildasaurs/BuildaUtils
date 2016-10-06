@@ -8,44 +8,44 @@
 
 import Foundation
 
-public class HTTP {
+open class HTTP {
     
-    public var session: NSURLSession
+    open var session: URLSession
     
-    public init(session: NSURLSession?) {
+    public init(session: URLSession?) {
         
         if let session = session {
             self.session = session
         } else {
             
-            let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let configuration = URLSessionConfiguration.default
             
             //disable all caching
-            configuration.requestCachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-            configuration.URLCache = nil
+            configuration.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+            configuration.urlCache = nil
             
-            let session = NSURLSession(configuration: configuration)
+            let session = URLSession(configuration: configuration)
             self.session = session
         }
     }
     
-    public typealias Completion = (response: NSHTTPURLResponse?, body: AnyObject?, error: NSError?) -> ()
+    public typealias Completion = (_ response: URLResponse?, _ body: Any?, _ error: Error?) -> ()
 
-    public func sendRequest(request: NSURLRequest, completion: Completion) -> NSURLSessionTask {
+    open func sendRequest(_ request: URLRequest, completion: @escaping Completion) -> URLSessionTask {
         
-        let task = self.session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        let task = self.session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             //try to cast into HTTP response
-            if let httpResponse = response as? NSHTTPURLResponse {
+            if let httpResponse = response as? HTTPURLResponse {
                 
                 guard error == nil else {
                     //error in the networking stack
-                    completion(response: httpResponse, body: nil, error: error)
+                    completion(httpResponse, nil, error)
                     return
                 }
                 
                 guard let data = data else {
                     //no body, but a valid response
-                    completion(response: httpResponse, body: nil, error: nil)
+                    completion(httpResponse, nil, nil)
                     return
                 }
                 
@@ -56,15 +56,15 @@ public class HTTP {
                     
                     switch contentType {
                         
-                    case let s where s.rangeOfString("application/json") != nil:
+                    case let s where s.range(of: "application/json") != nil:
                         
                         let (json, error) = JSON.parse(data)
                         // let headers = httpResponse.allHeaderFields
-                        completion(response: httpResponse, body: json, error: error)
+                        completion(httpResponse, json, error)
                         
                     default:
                         //parse as UTF8 string
-                        let string = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+                        let string = String(data: data, encoding: String.Encoding.utf8)
                         
                         //check for common problems
                         let userInfo: NSDictionary? = {
@@ -79,21 +79,21 @@ public class HTTP {
                         
                         let commonError: NSError? = {
                             if let userInfo = userInfo {
-                                return Error.withInfo(nil, internalError: nil, userInfo: userInfo)
+                                return MyError.withInfo(nil, internalError: nil, userInfo: userInfo)
                             }
                             return nil
                             }()
                         
-                        completion(response: httpResponse, body: string, error: commonError)
+                        completion(httpResponse, string, commonError)
                     }
                 } else {
                     
                     //no content type, probably a 204 or something - let's just send the code as the content object
-                    completion(response: httpResponse, body: code, error: error)
+                    completion(httpResponse, code, error)
                 }
             } else {
-                let e = error ?? Error.withInfo("Response is nil")
-                completion(response: nil, body: nil, error: e)
+                let e = error ?? MyError.withInfo("Response is nil")
+                completion(nil, nil, e)
             }
         })
         
@@ -119,13 +119,13 @@ extension HTTP {
     
     - returns: Query or empty String
     */
-    public class func stringForQuery(query: [String : String]?) -> String {
-        guard let query = query where query.count > 0 else {
+    public class func stringForQuery(_ query: [String : String]?) -> String {
+        guard let query = query , query.count > 0 else {
             return ""
         }
         
-        let pairs = query.keys.sort().map { "\($0)=\(query[$0]!)" }
-        let full = "?" + pairs.joinWithSeparator("&")
+        let pairs = query.keys.sorted().map { "\($0)=\(query[$0]!)" }
+        let full = "?" + pairs.joined(separator: "&")
         
         return full
     }

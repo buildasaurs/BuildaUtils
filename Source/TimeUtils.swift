@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension NSDate {
+public extension Date {
     
     public func nicelyFormattedRelativeTimeToNow() -> String {
         
@@ -18,27 +18,27 @@ public extension NSDate {
         return "\(formatted) ago"
     }
     
-    class public func dateFromXCSString(date: String) -> NSDate? {
+    static public func dateFromXCSString(_ date: String) -> Date? {
         // XCS date formatter
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ"
         
-        return formatter.dateFromString(date)
+        return formatter.date(from: date)
     }
     
-    class public func XCSStringFromDate(date: NSDate) -> String? {
+    static public func XCSStringFromDate(_ date: Date) -> String? {
         // XCS date formatter
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ"
         
-        return formatter.stringFromDate(date)
+        return formatter.string(from: date)
     }
 }
 
-public class TimeUtils {
+open class TimeUtils {
     
     //formats up to hours
-    public class func secondsToNaturalTime(seconds: Int) -> String {
+    open class func secondsToNaturalTime(_ seconds: Int) -> String {
         
         let intSeconds = Int(seconds)
         let minutes = intSeconds / 60

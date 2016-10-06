@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class HTTPServer : NSObject {
+open class HTTPServer : NSObject {
     
-    public let http: HTTP
+    open let http: HTTP
     
     public init(http: HTTP? = nil) {
         self.http = http ?? HTTP(session: nil)

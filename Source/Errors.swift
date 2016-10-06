@@ -12,14 +12,27 @@ public enum BuildaError: String {
     case UnknownError = "Unknown error"
 }
 
-public struct Error {
+extension Dictionary {
     
-    public static func fromType(type: BuildaError) -> NSError {
+    mutating func merge(with dictionary: Dictionary) {
+        dictionary.forEach { updateValue($1, forKey: $0) }
+    }
+    
+    func merged(with dictionary: Dictionary) -> Dictionary {
+        var dict = self
+        dict.merge(with: dictionary)
+        return dict
+    }
+}
+
+public struct MyError: Error {
+    
+    public static func fromType(_ type: BuildaError) -> NSError {
         return self.withInfo(type.rawValue)
     }
     
-    public static func withInfo(info: String?, internalError: NSError? = nil, userInfo: NSDictionary? = nil) -> NSError {
-        let finalInfo = NSMutableDictionary()
+    public static func withInfo(_ info: String?, internalError: NSError? = nil, userInfo: NSDictionary? = nil) -> NSError {
+        var finalInfo: [AnyHashable: Any] = [:]
         
         if let info = info {
             finalInfo[NSLocalizedDescriptionKey] = info
@@ -29,15 +42,15 @@ public struct Error {
             finalInfo["encountered_error"] = internalError
         }
         
-        if let userInfo = userInfo {
-            finalInfo.addEntriesFromDictionary(userInfo as [NSObject : AnyObject])
+        if let userInfo = userInfo as? [AnyHashable: Any] {
+            finalInfo = finalInfo.merged(with: userInfo)
         }
         
-        return NSError(domain: "com.honzadvorsky.Buildasaur", code: 0, userInfo: finalInfo as [NSObject : AnyObject])
+        return NSError(domain: "com.honzadvorsky.Buildasaur", code: 0, userInfo: finalInfo)
     }
 }
 
-struct StringError: ErrorType {
+struct StringError: Error {
     
     let description: String
     let _domain: String = ""
