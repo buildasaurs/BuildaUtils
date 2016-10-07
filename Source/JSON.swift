@@ -9,11 +9,11 @@
 import Foundation
 
 public protocol JSONReadable {
-    init(json: NSDictionary) throws
+    init(json: [String: Any]) throws
 }
 
 public protocol JSONWritable {
-    func jsonify() -> NSDictionary
+    func jsonify() -> [String: Any]
 }
 
 public enum JSONError: Error {
