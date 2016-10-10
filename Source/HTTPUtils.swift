@@ -105,11 +105,11 @@ open class HTTP {
 extension HTTP {
     
     public enum Method : String {
-        case GET = "GET"
-        case POST = "POST"
-        case PATCH = "PATCH"
-        case DELETE = "DELETE"
-        case PUT = "PUT"
+        case get = "GET"
+        case post = "POST"
+        case patch = "PATCH"
+        case delete = "DELETE"
+        case put = "PUT"
     }
 
     /**
