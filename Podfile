@@ -2,7 +2,7 @@
 use_frameworks!
 
 target 'BuildaUtils' do
-	pod 'SwiftSafe', '~> 0.1'
+	pod 'SwiftSafe'
 end
 
 target 'BuildaUtilsTests' do
