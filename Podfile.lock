@@ -1,10 +1,12 @@
 PODS:
-  - SwiftSafe (0.1)
+  - SwiftSafe (2.0.0)
 
 DEPENDENCIES:
-  - SwiftSafe (~> 0.1)
+  - SwiftSafe
 
 SPEC CHECKSUMS:
-  SwiftSafe: 77ffd12b02678790bec1ef56a2d14ec5036f1fd6
+  SwiftSafe: b64ef3119a0b906e9ca6f67cd1705f351c9a8f9c
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 4740cd66c3a57dedbdf642fe9f7e3706ca41698e
+
+COCOAPODS: 1.1.0.rc.3
