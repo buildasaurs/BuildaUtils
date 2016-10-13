@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                    Both Buildasaur and XcodeServerSDK need similar utilities. This is where I keep them.
                    DESC
 
-  s.homepage     = "https://github.com/czechboy0/BuildaUtils"
+  s.homepage     = "https://github.com/buildasaurs/BuildaUtils"
   s.license      = { :type => "MIT", :file => "LICENSE.md" }
 
   s.author             = { "Honza Dvorsky" => "http://honzadvorsky.com" }
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
 
-  s.source       = { :git => "https://github.com/czechboy0/BuildaUtils.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/buildasaurs/BuildaUtils.git", :tag => "v#{s.version}" }
   s.source_files  = "Source/*.{swift}"
 
   # load the dependencies from the podfile for target ekgclient
