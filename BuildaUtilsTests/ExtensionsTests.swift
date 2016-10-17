@@ -22,7 +22,7 @@ class ExtensionsTests: XCTestCase {
             try self.xcode6.dateString()
         }
         
-        XCTempAssertThrowsSpecificError(DateParsingError.WrongNumberOfElements(4)) {
+        XCTempAssertThrowsSpecificError(DateParsingError.wrongNumberOfElements(4)) {
             try [1, 2, 3, 4].dateString()
         }
     }

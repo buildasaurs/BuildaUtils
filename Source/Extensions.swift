@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func unthrow<R>(@noescape block: () throws -> R) -> (R?, ErrorType?) {
+public func unthrow<R>(_ block: () throws -> R) -> (R?, Error?) {
     do {
         return (try block(), nil)
     } catch {
@@ -16,7 +16,7 @@ public func unthrow<R>(@noescape block: () throws -> R) -> (R?, ErrorType?) {
     }
 }
 
-public func unthrow<R>(@noescape block: () throws -> R) -> (R?, NSError?) {
+public func unthrow<R>(_ block: () throws -> R) -> (R?, NSError?) {
     do {
         return (try block(), nil)
     } catch {
@@ -26,7 +26,7 @@ public func unthrow<R>(@noescape block: () throws -> R) -> (R?, NSError?) {
 
 public extension Double {
     
-    public func clipTo(numberOfDigits: Int) -> Double {
+    public func clipTo(_ numberOfDigits: Int) -> Double {
         
         let multiplier = pow(10.0, Double(numberOfDigits))
         return Double(Int(self * multiplier)) / multiplier
@@ -39,12 +39,12 @@ public extension String {
         
         var stripped = self
         if stripped.hasSuffix("\n") {
-            stripped.removeAtIndex(stripped.endIndex.predecessor())
+            stripped.remove(at: stripped.characters.index(before: stripped.endIndex))
         }
         return stripped
     }
     
-    public func pluralizeStringIfNecessary(number: Int) -> String {
+    public func pluralizeStringIfNecessary(_ number: Int) -> String {
         if number > 1 {
             return "\(self)s"
         }
@@ -52,17 +52,17 @@ public extension String {
     }
 }
 
-public enum DateParsingError: ErrorType {
-    case WrongNumberOfElements(Int)
+public enum DateParsingError: Error {
+    case wrongNumberOfElements(Int)
 }
 
-public extension Array where Element: IntegerType {
+public extension Array where Element: Integer {
     
     public func dateString() throws -> String {
         let elementsCount = self.count
-        let formatter = NSNumberFormatter()
+        let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 2
-        let formattedSelf = self.flatMap { formatter.stringFromNumber($0 as! NSNumber) }
+        let formattedSelf = self.flatMap { formatter.string(from: $0 as! NSNumber) }
         
         switch elementsCount {
         case 6:
@@ -70,7 +70,7 @@ public extension Array where Element: IntegerType {
         case 7:
             return "\(formattedSelf[0])-\(formattedSelf[1])-\(formattedSelf[2])T\(formattedSelf[3]):\(formattedSelf[4]):\(formattedSelf[5]).\(formattedSelf[6])Z"
         default:
-            throw DateParsingError.WrongNumberOfElements(elementsCount)
+            throw DateParsingError.wrongNumberOfElements(elementsCount)
         }
     }
     

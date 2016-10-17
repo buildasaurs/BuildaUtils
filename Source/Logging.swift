@@ -11,46 +11,46 @@ import Foundation
 public protocol Logger {
     
     func description() -> String
-    func log(message: String)
+    func log(_ message: String)
 }
 
-public class FileLogger: Logger {
+open class FileLogger: Logger {
     
-    let fileURL: NSURL
+    let fileURL: URL
 
     // Split log files at this byte size. If nil, never split files (default: 1MB)
-    public var fileSizeCap: UInt64? = 1024 * 1024
+    open var fileSizeCap: UInt64? = 1024 * 1024
 
     // If false, delete old log files when splitting on fileSizeCap
-    public var shouldKeepArchivedLogs = true
+    open var shouldKeepArchivedLogs = true
 
-    internal var stream: NSOutputStream
+    internal var stream: OutputStream
     internal var fileSize: UInt64? {
         do {
-            let fileAttributes = try NSFileManager.defaultManager().attributesOfItemAtPath(fileURL.path!) as NSDictionary
+            let fileAttributes = try FileManager.default.attributesOfItem(atPath: fileURL.path) as NSDictionary
             return fileAttributes.fileSize()
         } catch {
             return nil
         }
     }
 
-    lazy private var dateFormatter: NSDateFormatter = {
-        let enUSPosixLocale = NSLocale(localeIdentifier: "en_US_POSIX")
-        let formatter = NSDateFormatter()
+    lazy fileprivate var dateFormatter: DateFormatter = {
+        let enUSPosixLocale = Locale(identifier: "en_US_POSIX")
+        let formatter = DateFormatter()
         formatter.locale = enUSPosixLocale
         formatter.dateFormat = "yyyy-MM-dd'T'HH-mm-SS"
         return formatter
     }()
 
-    public init(fileURL: NSURL) {
-        assert(fileURL.fileURL, "URL to log file has to be a File URL")
+    public init(fileURL: URL) {
+        assert(fileURL.isFileURL, "URL to log file has to be a File URL")
         self.fileURL = fileURL
 
-        if !NSFileManager.defaultManager().fileExistsAtPath(fileURL.absoluteString) {
-            NSFileManager.defaultManager().createFileAtPath(fileURL.absoluteString, contents: nil, attributes: nil)
+        if !FileManager.default.fileExists(atPath: fileURL.absoluteString) {
+            FileManager.default.createFile(atPath: fileURL.absoluteString, contents: nil, attributes: nil)
         }
 
-        self.stream = NSOutputStream(URL: fileURL, append: true)!
+        self.stream = OutputStream(url: fileURL, append: true)!
         self.stream.open()
     }
 
@@ -58,21 +58,21 @@ public class FileLogger: Logger {
         self.stream.close()
     }
 
-    public func description() -> String {
+    open func description() -> String {
         return "File logger into file at path \(self.fileURL)"
     }
     
-    public func log(message: String) {
-        let data: NSData = "\(message)\n".dataUsingEncoding(NSUTF8StringEncoding)!
+    open func log(_ message: String) {
+        let data: Data = "\(message)\n".data(using: String.Encoding.utf8)!
 
         if shouldArchiveFileBeforeLogging(data) {
             archiveLogFile()
         }
 
-        self.stream.write(UnsafePointer<UInt8>(data.bytes), maxLength: data.length)
+        self.stream.write((data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), maxLength: data.count)
     }
 
-    internal func shouldArchiveFileBeforeLogging(data: NSData) -> Bool {
+    internal func shouldArchiveFileBeforeLogging(_ data: Data) -> Bool {
         guard let cap = self.fileSizeCap else {
             return false
         }
@@ -81,27 +81,27 @@ public class FileLogger: Logger {
             return false
         }
 
-        let sizeAfterWrite = currentSize + UInt64(data.length)
+        let sizeAfterWrite = currentSize + UInt64(data.count)
         return sizeAfterWrite > cap
     }
 
 
-    private func archiveLogFile() {
+    fileprivate func archiveLogFile() {
         self.stream.close()
 
-        let components = NSURLComponents(URL: fileURL, resolvingAgainstBaseURL: false)
-        let dateString = dateFormatter.stringFromDate(NSDate())
-        components!.path = components!.path?.stringByAppendingString(dateString)
+        var components = URLComponents(url: fileURL, resolvingAgainstBaseURL: false)
+        let dateString = dateFormatter.string(from: Date())
+        components!.path = (components!.path) + dateString
 
         do {
             if self.shouldKeepArchivedLogs {
-                try NSFileManager.defaultManager().moveItemAtURL(fileURL.filePathURL!, toURL: components!.URL!)
+                try FileManager.default.moveItem(at: fileURL, to: components!.url!)
             } else {
-                try NSFileManager.defaultManager().removeItemAtURL(fileURL.filePathURL!)
+                try FileManager.default.removeItem(at: fileURL)
             }
 
-            NSFileManager.defaultManager().createFileAtPath(fileURL.absoluteString, contents: nil, attributes: nil)
-            self.stream = NSOutputStream(URL: fileURL, append: true)!
+            FileManager.default.createFile(atPath: fileURL.absoluteString, contents: nil, attributes: nil)
+            self.stream = OutputStream(url: fileURL, append: true)!
             self.stream.open()
         } catch let error {
             print(error)
@@ -109,54 +109,54 @@ public class FileLogger: Logger {
     }
 }
 
-public class ConsoleLogger: Logger {
+open class ConsoleLogger: Logger {
     
     public  init() {
         //
     }
     
-    public func description() -> String {
+    open func description() -> String {
         return "Console logger"
     }
     
-    public func log(message: String) {
+    open func log(_ message: String) {
         print(message)
     }
 }
 
-public class Log {
+open class Log {
     
-    static private var _loggers = [Logger]()
-    public class func addLoggers(loggers: [Logger]) {
+    static fileprivate var _loggers = [Logger]()
+    open class func addLoggers(_ loggers: [Logger]) {
         for i in loggers {
             _loggers.append(i)
             print("Added logger: \(i)")
         }
     }
     
-    private class func log(message: String) {
+    fileprivate class func log(_ message: String) {
         for i in _loggers {
             i.log(message)
         }
     }
     
-    public class func verbose(message: String) {
+    open class func verbose(_ message: String) {
         Log.log("[VERBOSE]: " + message)
     }
     
-    public class func info(message: String) {
+    open class func info(_ message: String) {
         Log.log("[INFO]: " + message)
     }
     
-    public class func error(error: ErrorType) {
+    open class func error(_ error: Error) {
         self.error("\(error)")
     }
     
-    public class func error(message: String) {
+    open class func error(_ message: String) {
         Log.log("[ERROR]: " + message)
     }
     
-    public class func untouched(message: String) {
+    open class func untouched(_ message: String) {
         Log.log(message)
     }
 }

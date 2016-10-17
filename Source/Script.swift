@@ -14,7 +14,7 @@ import Foundation
 
 #if os(OSX)
 
-public class Script {
+open class Script {
     
     public typealias ScriptResponse = (terminationStatus: Int, standardOutput: String, standardError: String)
     
@@ -25,7 +25,7 @@ public class Script {
     *   as a map from String to String.
     *   Back you get a 'ScriptResponse', which is a tuple around the termination status and outputs (standard and error).
     */
-    public class func run(name: String, arguments: [String] = [], environment: [String: String] = [:]) -> ScriptResponse {
+    open class func run(_ name: String, arguments: [String] = [], environment: [String: String] = [:]) -> ScriptResponse {
         
         //first resolve the name of the script to a path with `which`
         let resolved = self.runResolved("/usr/bin/which", arguments: [name], environment: [:])
@@ -48,7 +48,7 @@ public class Script {
     *   string into a temporary file, runs it and then deletes it. More useful for more complex script that involve
     *   piping data between multiple scripts etc. Might be slower than Script.run, however.
     */
-    public class func runTemporaryScript(script: String) -> ScriptResponse {
+    open class func runTemporaryScript(_ script: String) -> ScriptResponse {
         
         var resp: ScriptResponse!
         self.runInTemporaryScript(script, block: { (scriptPath, error) -> () in
@@ -57,39 +57,39 @@ public class Script {
         return resp
     }
     
-    private class func runInTemporaryScript(script: String, block: (scriptPath: String, error: NSError?) -> ()) {
+    fileprivate class func runInTemporaryScript(_ script: String, block: (_ scriptPath: String, _ error: NSError?) -> ()) {
         
-        let uuid = NSUUID().UUIDString
+        let uuid = UUID().uuidString
         // Bug? https://forums.developer.apple.com/thread/13580
-        let tempPath = (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent(uuid)
+        let tempPath = (NSTemporaryDirectory() as NSString).appendingPathComponent(uuid)
         
         do {
             //write the script to file
-            try script.writeToFile(tempPath, atomically: true, encoding: NSUTF8StringEncoding)
+            try script.write(toFile: tempPath, atomically: true, encoding: String.Encoding.utf8)
             
-            block(scriptPath: tempPath, error: nil)
+            block(tempPath, nil)
             
             //delete the temp script
-            try NSFileManager.defaultManager().removeItemAtPath(tempPath)
+            try FileManager.default.removeItem(atPath: tempPath)
         } catch {
             Log.error(error)
         }
     }
     
-    private class func runResolved(path: String, arguments: [String], environment: [String: String]) -> ScriptResponse {
+    fileprivate class func runResolved(_ path: String, arguments: [String], environment: [String: String]) -> ScriptResponse {
         
-        let outputPipe = NSPipe()
-        let errorPipe = NSPipe()
+        let outputPipe = Pipe()
+        let errorPipe = Pipe()
         
         let outputFile = outputPipe.fileHandleForReading
         let errorFile = errorPipe.fileHandleForReading
         
-        let task = NSTask()
+        let task = Process()
         task.launchPath = path
         task.arguments = arguments
         
-        var env = NSProcessInfo.processInfo().environment
-        for (_, keyValue) in environment.enumerate() {
+        var env = ProcessInfo.processInfo.environment
+        for (_, keyValue) in environment.enumerated() {
             env[keyValue.0] = keyValue.1
         }
         task.environment = env
@@ -106,11 +106,11 @@ public class Script {
         return (terminationStatus, output, error)
     }
     
-    private class func stringFromFileAndClose(file: NSFileHandle) -> String {
+    fileprivate class func stringFromFileAndClose(_ file: FileHandle) -> String {
         
         let data = file.readDataToEndOfFile()
         file.closeFile()
-        let output = NSString(data: data, encoding: NSUTF8StringEncoding) as String?
+        let output = String(data: data, encoding: String.Encoding.utf8)
         return output ?? ""
     }
 }
