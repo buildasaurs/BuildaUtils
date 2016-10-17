@@ -17,7 +17,7 @@ def project_name
 end
 
 def project_github_name
-  "czechboy0/#{project_name}"
+  "buildasaurs/#{project_name}"
 end
 
 def release_branch

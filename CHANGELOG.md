@@ -1,10 +1,7 @@
 # Change Log
 
 ## [v0.4.0](https://github.com/buildasaurs/BuildaUtils/tree/v0.4.0) (2016-10-17)
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/0.4.0...v0.4.0)
-
-## [0.4.0](https://github.com/buildasaurs/BuildaUtils/tree/0.4.0) (2016-10-17)
-[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.3.2...0.4.0)
+[Full Changelog](https://github.com/buildasaurs/BuildaUtils/compare/v0.3.2...v0.4.0)
 
 **Merged pull requests:**
 
